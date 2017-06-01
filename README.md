@@ -18,19 +18,19 @@ yarn
 ```
 
 This is the same as `yarn install` and it will install all dependencies, among others, the @csnext dependencies.
-Finally, run `yarn run build` to start the typescript compiler in watch mode for each package.
+
+As we haven't published csnext yet, also run `yarn run link` to link to the (locally installed) @csnext dependencies.
 
 ## Package overview
 
-- @csnext/cs-core: contains common classes and interfaces
-- @csnext/cs-client: contains classes for the web client
-- @csnext/cs-server: contains classes for the web server
+- src/client: example client
+- src/server: example server
 
 ## Developing your own client
 
 Fork this project.
 
-Run `yarn start` to let `fuse-box` transpile your typescript code to a vendor and app package in the `dist/client` folder.
+Run `yarn start` to let `fuse-box` transpile your typescript code to a vendor and app package in the `dist/client` folder. Visit [http://localhost:3456](http://localhost:3456) to watch the results.
 
 In case you want to develop new plugins too, run `yarn run link` so you will create symbolic links to the csnext dependencies (which must have been installed already).
 
