@@ -1,0 +1,40 @@
+{
+  "name": "cs-example",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p ./src/server -w",
+    "start": "node ./build/fuse dev",
+    "prod": "node ./build/fuse prod",
+    "server": "nodemon ./dist/server/index.js",
+    "link": "yarn link @csnext/cs-server && yarn link @csnext/cs-client"
+  },
+  "dependencies": {
+    "aurelia-animator-css": "^1.0.2",
+    "aurelia-binding": "^1.2.1",
+    "aurelia-bootstrapper": "^2.1.1",
+    "aurelia-dependency-injection": "^1.3.1",
+    "aurelia-fetch-client": "^1.1.2",
+    "aurelia-framework": "^1.1.2",
+    "aurelia-loader": "^1.0.0",
+    "aurelia-metadata": "^1.0.3",
+    "aurelia-pal": "^1.3.0",
+    "aurelia-path": "^1.1.1",
+    "aurelia-task-queue": "^1.2.0",
+    "aurelia-templating": "^1.4.2",
+    "jquery": "3.2.1",
+    "fuse-box": "^2.0.12",
+    "bluebird": "^3.5.0",
+    "fuse-box-aurelia-loader": "git://github.com/fuse-box/fuse-box-aurelia-loader.git",
+    "fuse-box-typechecker": "git://github.com/fuse-box/fuse-box-typechecker.git",
+    "source-map": "^0.5.6",
+    "whatwg-fetch": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/bluebird-global": "^3.5.2",
+    "nodemon": "^1.11.0",
+    "tslint": "^5.2.0",
+    "typescript": "2.3.4"
+  }
+}
