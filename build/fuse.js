@@ -8,6 +8,7 @@ const {
     EnvPlugin
 } = require("fuse-box");
 
+const PORT = 3456;
 const BASE_PATH = '../';
 
 /*
@@ -61,7 +62,9 @@ let run = (production) => {
         + aurelia-templating-resources
         + aurelia-event-aggregator
         + aurelia-history-browser
-        + aurelia-templating-router`)
+        + aurelia-templating-router
+        + leaflet
+        + @csnext/cs-leaflet-plugin`)
         .alias({
             'jQuery': 'jquery'
         })
@@ -78,7 +81,9 @@ let run = (production) => {
 
         // if not production we want the hmr and watch activated
         fuse.bundle('app')
-            .watch().cache(false).hmr()
+            .watch().cache(false).hmr({
+                socketURI: 'ws://localhost:' + PORT
+            })
             .instructions(`
             > [main.ts]
             + [**/*.{ts,html,css}]
@@ -86,7 +91,7 @@ let run = (production) => {
 
         // we also want http dev server
         fuse.dev({
-            port: 3456,
+            port: PORT,
             root: BASE_PATH
         });
 
