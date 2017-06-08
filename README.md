@@ -6,7 +6,7 @@ Example of a client and server that use the csnext dashboard.
 
 We use `lerna` to manage plugin dependencies and `yarn` for installing packages, so you need them both, globally. We also use `nodemon` to run the local server.
 ```console
-npm i -g lerna yarn
+npm i -g lerna yarn supervisor
 ```
 
 # Installation
@@ -30,9 +30,20 @@ As we haven't published csnext yet, also run `yarn run link` to link to the (loc
 
 Fork this project.
 
-Run `yarn start` to let `fuse-box` transpile your typescript code to a vendor and app package in the `dist/client` folder. Visit [http://localhost:3456](http://localhost:3456) to watch the results.
+Run
+```console
+yarn start
+```
+to let `fuse-box` transpile your typescript code to a vendor and app package in the `dist/client` folder. Visit [http://localhost:3456](http://localhost:3456) to watch the results.
 
-In case you want to develop new plugins too, run `yarn run link` so you will create symbolic links to the csnext dependencies (which must have been installed already).
+In case you want to develop new plugins too, run
+```console
+yarn run link
+```
+so you will create symbolic links to the csnext dependencies (which must have been installed already). In that case, consider using `supervisor` to automatically reload fusebox when one of the linked dependencies changes:
+```console
+supervisor -w node_modules\@csnext\ -- .\build\fuse dev
+```
 
 You can deploy your client using `yarn run prod`.
 
